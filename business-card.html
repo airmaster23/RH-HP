@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RH株式会社 — 名刺デザイン</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;700&family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black: #0A0A0A;
+      --black-mid: #1A1A1A;
+      --gold: #B8864A;
+      --gold-lt: #C89A5E;
+      --white: #FFFFFF;
+      --text-sub: #999999;
+      --font-ja: 'Noto Sans JP', sans-serif;
+      --font-serif: 'Noto Serif JP', serif;
+      --font-en: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #E8E8E8;
+      font-family: var(--font-ja);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px;
+      gap: 60px;
+      min-height: 100vh;
+    }
+
+    h2 {
+      font-family: var(--font-en);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .25em;
+      color: #888;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .card-pair {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .card-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .card-label {
+      font-family: var(--font-en);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .2em;
+      color: #AAA;
+      text-transform: uppercase;
+    }
+
+    /* === Card base: 91mm x 55mm at 96dpi ≈ 344px x 208px, scale up for clarity === */
+    .card {
+      width: 520px;
+      height: 314px;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow:
+        0 2px 8px rgba(0,0,0,.08),
+        0 12px 40px rgba(0,0,0,.12);
+      position: relative;
+    }
+
+    /* ===================== FRONT ===================== */
+    .card--front {
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 44px 48px;
+    }
+
+    /* Subtle grid background */
+    .card--front::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,0,0,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    /* Gold accent line top */
+    .card--front::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 48px;
+      width: 48px; height: 2px;
+      background: var(--gold);
+    }
+
+    .front-top {
+      position: relative;
+      z-index: 1;
+    }
+
+    .front-logo {
+      font-family: var(--font-en);
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--black);
+      letter-spacing: -.02em;
+      line-height: 1;
+    }
+
+    .front-company {
+      font-size: 11px;
+      font-weight: 400;
+      color: #999;
+      margin-top: 8px;
+      letter-spacing: .08em;
+    }
+
+    .front-middle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      text-align: center;
+    }
+
+    .front-tagline {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: .08em;
+      line-height: 1.6;
+    }
+
+    .front-tagline-en {
+      font-family: var(--font-en);
+      font-size: 9px;
+      font-weight: 400;
+      color: #BBB;
+      letter-spacing: .2em;
+      margin-top: 6px;
+    }
+
+    .front-bottom {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .front-services {
+      display: flex;
+      gap: 16px;
+    }
+
+    .front-services span {
+      font-family: var(--font-en);
+      font-size: 8px;
+      font-weight: 600;
+      color: #CCC;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .front-url {
+      font-family: var(--font-en);
+      font-size: 9px;
+      font-weight: 400;
+      color: #BBB;
+      letter-spacing: .05em;
+    }
+
+    /* Corner decorations */
+    .corner {
+      position: absolute;
+      width: 12px; height: 12px;
+      border-color: rgba(0,0,0,.1);
+      border-style: solid;
+      z-index: 1;
+    }
+    .corner--br { bottom: 16px; right: 16px; border-width: 0 1px 1px 0; }
+    .corner--bl { bottom: 16px; left: 16px; border-width: 0 0 1px 1px; }
+
+    /* ===================== BACK ===================== */
+    .card--back {
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 44px 48px;
+      border: 1px solid rgba(0,0,0,.08);
+    }
+
+    /* Gold accent line top */
+    .card--back::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 48px;
+      width: 48px; height: 2px;
+      background: var(--gold);
+    }
+
+    .back-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .back-name-block {}
+
+    .back-position {
+      font-family: var(--font-en);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .back-name-ja {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: .1em;
+      line-height: 1;
+    }
+
+    .back-name-en {
+      font-family: var(--font-en);
+      font-size: 10px;
+      font-weight: 400;
+      color: #BBB;
+      letter-spacing: .15em;
+      margin-top: 8px;
+    }
+
+    .back-name-title {
+      font-size: 11px;
+      font-weight: 500;
+      color: #888;
+      margin-top: 10px;
+      letter-spacing: .08em;
+    }
+
+    .back-logo-small {
+      font-family: var(--font-en);
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--black);
+      letter-spacing: -.02em;
+      opacity: .08;
+    }
+
+    /* Services section */
+    .back-services-section {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .back-services-label {
+      font-family: var(--font-en);
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    .back-services-list {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .back-services-list span {
+      font-size: 10px;
+      font-weight: 500;
+      color: #666;
+      padding: 2px 10px;
+      border: 1px solid rgba(0,0,0,.1);
+      border-radius: 20px;
+      letter-spacing: .03em;
+    }
+
+    /* Divider */
+    .back-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--black), rgba(0,0,0,.06));
+      opacity: .12;
+    }
+
+    .back-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .back-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .back-info-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .back-info-label {
+      font-family: var(--font-en);
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      width: 32px;
+      flex-shrink: 0;
+    }
+
+    .back-info-value {
+      font-size: 11px;
+      font-weight: 400;
+      color: #555;
+      letter-spacing: .02em;
+    }
+
+    .back-info-value a {
+      color: #555;
+      text-decoration: none;
+    }
+
+    .back-company-block {
+      text-align: right;
+    }
+
+    .back-company-logo {
+      font-family: var(--font-en);
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--black);
+      letter-spacing: -.02em;
+      line-height: 1;
+    }
+
+    .back-company-name {
+      font-size: 11px;
+      font-weight: 400;
+      color: #999;
+      margin-top: 8px;
+      letter-spacing: .08em;
+    }
+
+    /* ===================== PRINT ===================== */
+    .print-note {
+      font-size: 12px;
+      color: #AAA;
+      text-align: center;
+      margin-top: -20px;
+    }
+
+    @media print {
+      body { background: white; padding: 20mm; }
+      .card { box-shadow: none; border: 1px solid #ddd; page-break-inside: avoid; }
+      h2, .card-label, .print-note { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>RH Inc. — Business Card Design</h2>
+
+  <div class="card-pair">
+
+    <!-- ===== FRONT (表面) ===== -->
+    <div class="card-wrapper">
+      <div class="card card--front">
+        <div class="front-top">
+          <div class="front-logo">RH</div>
+          <div class="front-company">RH株式会社</div>
+        </div>
+
+        <div class="front-middle">
+          <div class="front-tagline">現場を知る者が、<br>貢献するWeb。</div>
+          <div class="front-tagline-en">Built by those who know the field.</div>
+        </div>
+
+        <div class="front-bottom">
+          <div class="front-services">
+            <span>HP</span>
+            <span>LP</span>
+            <span>AI</span>
+            <span>Branding</span>
+          </div>
+          <div class="front-url">rh-hp-lp.web.app</div>
+        </div>
+
+        <div class="corner corner--br"></div>
+        <div class="corner corner--bl"></div>
+      </div>
+      <span class="card-label">Front — 表面</span>
+    </div>
+
+    <!-- ===== BACK (裏面) ===== -->
+    <div class="card-wrapper">
+      <div class="card card--back">
+        <div class="back-top">
+          <div class="back-name-block">
+            <div class="back-position">Representative Director</div>
+            <div class="back-name-ja">久司 吏佑</div>
+            <div class="back-name-en">RIYU HISASHI</div>
+            <div class="back-name-title">代表取締役</div>
+          </div>
+          <div class="back-logo-small">RH</div>
+        </div>
+
+        <div class="back-services-section">
+          <div class="back-services-label">Business</div>
+          <div class="back-services-list">
+            <span>HP制作</span><span>LP制作</span><span>AIの仕事活用</span><span>Webブランディング</span>
+          </div>
+        </div>
+
+        <div class="back-divider"></div>
+
+        <div class="back-bottom">
+          <div class="back-info">
+            <div class="back-info-row">
+              <span class="back-info-label">Tel</span>
+              <span class="back-info-value">080-4480-6029</span>
+            </div>
+            <div class="back-info-row">
+              <span class="back-info-label">Email</span>
+              <span class="back-info-value">info@rh-inc.jp</span>
+            </div>
+            <div class="back-info-row">
+              <span class="back-info-label">Web</span>
+              <span class="back-info-value">rh-hp-lp.web.app</span>
+            </div>
+            <div class="back-info-row">
+              <span class="back-info-label">Addr</span>
+              <span class="back-info-value">兵庫県西宮市熊野町6-7</span>
+            </div>
+          </div>
+          <div class="back-company-block">
+            <div class="back-company-logo">RH</div>
+            <div class="back-company-name">RH株式会社</div>
+          </div>
+        </div>
+      </div>
+      <span class="card-label">Back — 裏面</span>
+    </div>
+
+  </div>
+
+  <p class="print-note">※ 名刺サイズ: 91mm × 55mm（日本標準）| ブラウザで確認用のプレビューです</p>
+
+</body>
+</html>

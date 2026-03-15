@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>RH株式会社 — 名刺 印刷用</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;700&family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black: #0A0A0A;
+      --gold: #B8864A;
+      --white: #FFFFFF;
+      --font-ja: 'Noto Sans JP', sans-serif;
+      --font-serif: 'Noto Serif JP', serif;
+      --font-en: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #fff;
+      font-family: var(--font-ja);
+    }
+
+    @page {
+      size: 91mm 55mm;
+      margin: 0;
+    }
+
+    .page {
+      width: 91mm;
+      height: 55mm;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+    }
+
+    /* ===================== FRONT ===================== */
+    .front {
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 6mm 7mm;
+    }
+
+    .front::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 7mm;
+      width: 8mm; height: 0.5mm;
+      background: var(--gold);
+    }
+
+    .front-top { position: relative; z-index: 1; }
+
+    .front-logo {
+      font-family: var(--font-en);
+      font-size: 16pt;
+      font-weight: 900;
+      color: var(--black);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .front-company {
+      font-size: 5.5pt;
+      font-weight: 400;
+      color: #999;
+      margin-top: 1.5mm;
+      letter-spacing: 0.08em;
+    }
+
+    .front-middle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 1;
+    }
+
+    .front-tagline {
+      font-family: var(--font-serif);
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      line-height: 1.6;
+    }
+
+    .front-tagline-en {
+      font-family: var(--font-en);
+      font-size: 4.5pt;
+      font-weight: 400;
+      color: #BBB;
+      letter-spacing: 0.2em;
+      margin-top: 1.5mm;
+    }
+
+    .front-bottom {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .front-services {
+      display: flex;
+      gap: 3mm;
+    }
+
+    .front-services span {
+      font-family: var(--font-en);
+      font-size: 4pt;
+      font-weight: 600;
+      color: #CCC;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .front-url {
+      font-family: var(--font-en);
+      font-size: 4.5pt;
+      font-weight: 400;
+      color: #BBB;
+      letter-spacing: 0.05em;
+    }
+
+    /* ===================== BACK ===================== */
+    .back {
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 6mm 7mm;
+    }
+
+    .back::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 7mm;
+      width: 8mm; height: 0.5mm;
+      background: var(--gold);
+    }
+
+    .back-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .back-position {
+      font-family: var(--font-en);
+      font-size: 4.5pt;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 2mm;
+    }
+
+    .back-name-ja {
+      font-family: var(--font-serif);
+      font-size: 13pt;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: 0.1em;
+      line-height: 1;
+    }
+
+    .back-name-en {
+      font-family: var(--font-en);
+      font-size: 5pt;
+      font-weight: 400;
+      color: #BBB;
+      letter-spacing: 0.15em;
+      margin-top: 1.5mm;
+    }
+
+    .back-name-title {
+      font-size: 5.5pt;
+      font-weight: 500;
+      color: #888;
+      margin-top: 2mm;
+      letter-spacing: 0.08em;
+    }
+
+    .back-logo-block {
+      text-align: right;
+    }
+
+    .back-logo-rh {
+      font-family: var(--font-en);
+      font-size: 16pt;
+      font-weight: 900;
+      color: var(--black);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .back-logo-company {
+      font-size: 5.5pt;
+      font-weight: 400;
+      color: #999;
+      margin-top: 1.5mm;
+      letter-spacing: 0.08em;
+    }
+
+    /* Services */
+    .back-services-section {
+      display: flex;
+      align-items: center;
+      gap: 2.5mm;
+    }
+
+    .back-services-label {
+      font-family: var(--font-en);
+      font-size: 4pt;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    .back-services-list {
+      display: flex;
+      gap: 2mm;
+      flex-wrap: wrap;
+    }
+
+    .back-services-list span {
+      font-size: 5pt;
+      font-weight: 500;
+      color: #666;
+      padding: 0.3mm 1.8mm;
+      border: 0.2mm solid rgba(0,0,0,.1);
+      border-radius: 3mm;
+      letter-spacing: 0.03em;
+    }
+
+    /* Divider */
+    .back-divider {
+      width: 100%;
+      height: 0.15mm;
+      background: linear-gradient(90deg, var(--black), rgba(0,0,0,.06));
+      opacity: 0.12;
+    }
+
+    /* Bottom info */
+    .back-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .back-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2mm;
+    }
+
+    .back-info-row {
+      display: flex;
+      align-items: center;
+      gap: 2.5mm;
+    }
+
+    .back-info-label {
+      font-family: var(--font-en);
+      font-size: 4pt;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      width: 6mm;
+      flex-shrink: 0;
+    }
+
+    .back-info-value {
+      font-size: 5.5pt;
+      font-weight: 400;
+      color: #555;
+      letter-spacing: 0.02em;
+    }
+
+    /* ===== Screen preview ===== */
+    @media screen {
+      body {
+        background: #E8E8E8;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+        gap: 30px;
+      }
+
+      .page {
+        box-shadow: 0 2px 8px rgba(0,0,0,.08), 0 12px 40px rgba(0,0,0,.12);
+        border-radius: 3px;
+      }
+
+      .label {
+        font-family: var(--font-en);
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        color: #AAA;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+
+      .note {
+        font-size: 12px;
+        color: #AAA;
+        margin-top: 10px;
+      }
+    }
+
+    @media print {
+      .label, .note { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="label">Front</div>
+
+  <!-- ===== FRONT ===== -->
+  <div class="page front">
+    <div class="front-top">
+      <div class="front-logo">RH</div>
+      <div class="front-company">RH株式会社</div>
+    </div>
+
+    <div class="front-middle">
+      <div class="front-tagline">現場を知る者が、<br>貢献するWeb。</div>
+      <div class="front-tagline-en">Built by those who know the field.</div>
+    </div>
+
+    <div class="front-bottom">
+      <div class="front-services">
+        <span>HP</span>
+        <span>LP</span>
+        <span>AI</span>
+        <span>Branding</span>
+      </div>
+      <div class="front-url">rh-hp-lp.web.app</div>
+    </div>
+  </div>
+
+  <div class="label">Back</div>
+
+  <!-- ===== BACK ===== -->
+  <div class="page back">
+    <div class="back-top">
+      <div class="back-name-block">
+        <div class="back-position">Representative Director</div>
+        <div class="back-name-ja">久司 吏佑</div>
+        <div class="back-name-en">RIYU HISASHI</div>
+        <div class="back-name-title">代表取締役</div>
+      </div>
+      <div class="back-logo-block">
+        <div class="back-logo-rh">RH</div>
+        <div class="back-logo-company">RH株式会社</div>
+      </div>
+    </div>
+
+    <div class="back-services-section">
+      <div class="back-services-label">Business</div>
+      <div class="back-services-list">
+        <span>HP制作</span><span>LP制作</span><span>AIの仕事活用</span><span>Webブランディング</span>
+      </div>
+    </div>
+
+    <div class="back-divider"></div>
+
+    <div class="back-bottom">
+      <div class="back-info">
+        <div class="back-info-row">
+          <span class="back-info-label">Tel</span>
+          <span class="back-info-value">080-4480-6029</span>
+        </div>
+        <div class="back-info-row">
+          <span class="back-info-label">Email</span>
+          <span class="back-info-value">info@rh-inc.jp</span>
+        </div>
+        <div class="back-info-row">
+          <span class="back-info-label">Web</span>
+          <span class="back-info-value">rh-hp-lp.web.app</span>
+        </div>
+        <div class="back-info-row">
+          <span class="back-info-label">Addr</span>
+          <span class="back-info-value">兵庫県西宮市熊野町6-7</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="note">※ Ctrl+P → 「PDFに保存」で入稿用PDFを作成できます（用紙サイズ: 91mm x 55mm）</p>
+
+</body>
+</html>
