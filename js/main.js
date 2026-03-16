@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
 
   // ===== Contact Form =====
-  const FORMSPREE = 'https://formspree.io/f/YOUR_FORM_ID';
+  const FORM_ENDPOINT = 'https://formsubmit.co/ajax/riyuuhisashi@gmail.com';
   const form = document.getElementById('contactForm');
   if (!form) return;
 
@@ -152,14 +152,23 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.innerHTML = '<span>送信中...</span>';
 
     try {
-      const res = await fetch(FORMSPREE, {
+      const formData = new FormData(form);
+      const data = {};
+      formData.forEach((val, key) => { data[key] = val; });
+      data['_subject'] = 'RH株式会社 HPからのお問い合わせ';
+      data['_template'] = 'table';
+
+      const res = await fetch(FORM_ENDPOINT, {
         method: 'POST',
-        body: new FormData(form),
-        headers: { Accept: 'application/json' }
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(data)
       });
 
       if (res.ok) {
-        btn.innerHTML = '<span>送信しました ✓</span>';
+        btn.innerHTML = '<span>送信しました</span>';
         btn.style.background = '#2563EB';
         form.reset();
         setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; btn.disabled = false; }, 4000);
