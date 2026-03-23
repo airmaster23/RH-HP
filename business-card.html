@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RH株式会社 — 名刺デザイン</title>
+  <title>RH Technology — 名刺デザイン</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;700&family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
@@ -262,13 +262,25 @@
       letter-spacing: .08em;
     }
 
-    .back-logo-small {
+    .back-company-block {
+      text-align: right;
+    }
+
+    .back-company-logo {
       font-family: var(--font-en);
       font-size: 22px;
       font-weight: 900;
       color: var(--black);
       letter-spacing: -.02em;
-      opacity: .08;
+      line-height: 1;
+    }
+
+    .back-company-name {
+      font-size: 11px;
+      font-weight: 400;
+      color: #999;
+      margin-top: 6px;
+      letter-spacing: .08em;
     }
 
     /* Services section */
@@ -391,50 +403,23 @@
 </head>
 <body>
 
-  <h2>RH Inc. — Business Card Design</h2>
+  <h2>RH Technology — Business Card Design</h2>
 
   <div class="card-pair">
 
-    <!-- ===== FRONT (表面) ===== -->
-    <div class="card-wrapper">
-      <div class="card card--front">
-        <div class="front-top">
-          <div class="front-logo">RH</div>
-          <div class="front-company">RH株式会社</div>
-        </div>
-
-        <div class="front-middle">
-          <div class="front-tagline">現場を知る者が、<br>貢献するWeb。</div>
-          <div class="front-tagline-en">Built by those who know the field.</div>
-        </div>
-
-        <div class="front-bottom">
-          <div class="front-services">
-            <span>HP</span>
-            <span>LP</span>
-            <span>AI</span>
-            <span>Branding</span>
-          </div>
-          <div class="front-url">rh-hp-lp.web.app</div>
-        </div>
-
-        <div class="corner corner--br"></div>
-        <div class="corner corner--bl"></div>
-      </div>
-      <span class="card-label">Front — 表面</span>
-    </div>
-
-    <!-- ===== BACK (裏面) ===== -->
+    <!-- ===== FRONT (表面) — 名前・連絡先 ===== -->
     <div class="card-wrapper">
       <div class="card card--back">
         <div class="back-top">
           <div class="back-name-block">
-            <div class="back-position">Representative Director</div>
+            <div class="back-position">CEO</div>
             <div class="back-name-ja">久司 吏佑</div>
             <div class="back-name-en">RIYU HISASHI</div>
-            <div class="back-name-title">代表取締役</div>
           </div>
-          <div class="back-logo-small">RH</div>
+          <div class="back-company-block">
+            <div class="back-company-logo">RH</div>
+            <div class="back-company-name">RH Technology</div>
+          </div>
         </div>
 
         <div class="back-services-section">
@@ -465,11 +450,36 @@
               <span class="back-info-value">兵庫県西宮市熊野町6-7</span>
             </div>
           </div>
-          <div class="back-company-block">
-            <div class="back-company-logo">RH</div>
-            <div class="back-company-name">RH株式会社</div>
-          </div>
         </div>
+      </div>
+      <span class="card-label">Front — 表面</span>
+    </div>
+
+    <!-- ===== BACK (裏面) — ロゴ・キャッチコピー ===== -->
+    <div class="card-wrapper">
+      <div class="card card--front">
+        <div class="front-top">
+          <div class="front-logo">RH</div>
+          <div class="front-company">RH Technology</div>
+        </div>
+
+        <div class="front-middle">
+          <div class="front-tagline">現場を知る者が、<br>貢献するWeb。</div>
+          <div class="front-tagline-en">Built by those who know the field.</div>
+        </div>
+
+        <div class="front-bottom">
+          <div class="front-services">
+            <span>HP</span>
+            <span>LP</span>
+            <span>AI</span>
+            <span>Branding</span>
+          </div>
+          <div class="front-url">rh-hp-lp.web.app</div>
+        </div>
+
+        <div class="corner corner--br"></div>
+        <div class="corner corner--bl"></div>
       </div>
       <span class="card-label">Back — 裏面</span>
     </div>

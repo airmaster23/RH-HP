@@ -1,4 +1,4 @@
-// ===== RH株式会社 — Main JS =====
+// ===== RH Technology — Main JS =====
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const formData = new FormData(form);
       const data = {};
       formData.forEach((val, key) => { data[key] = val; });
-      data['_subject'] = 'RH株式会社 HPからのお問い合わせ';
+      data['_subject'] = 'RH Technology HPからのお問い合わせ';
       data['_template'] = 'table';
 
       const res = await fetch(FORM_ENDPOINT, {
